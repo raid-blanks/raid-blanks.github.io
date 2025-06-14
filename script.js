@@ -54,5 +54,3 @@ function loadRaidClips() {
       console.error(err);
     });
 }
-
-}
