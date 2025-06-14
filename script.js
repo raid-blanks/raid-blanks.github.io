@@ -18,7 +18,7 @@ tabLinks.forEach(link => {
   });
 });
 
-const plans = document.querySelectorAll('.btn-purchase');
+const plans = document.querySelectorAll('.btn-purchase[data-plan]');
 const checkout = document.getElementById('checkout');
 const success = document.getElementById('success');
 const planText = document.getElementById('selected-plan-text').querySelector('strong');
@@ -26,9 +26,9 @@ const walletAddress = document.getElementById('wallet-address');
 const paymentMethod = document.getElementById('payment-method');
 
 const addresses = {
-  btc: 'bc1qexamplebtcaddresshere',
-  eth: '0xexampleethereumaddresshere',
-  ltc: 'ltcexamplelitecoinaddresshere'
+  btc: 'bc1qx4y4p9zn6u8kfny86wzysrdcx3chrjen085s32',
+  eth: '0xc0660Dc9748f6Da7Fe040dd32B9FDe8D4e213EB8',
+  ltc: 'LhonVVs88dRzjf3ZvAMTTGMvGveS9vsuBQ'
 };
 
 plans.forEach(btn => {
