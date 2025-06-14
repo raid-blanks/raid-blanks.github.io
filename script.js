@@ -18,24 +18,39 @@ tabLinks.forEach(link => {
   });
 });
 
-document.querySelectorAll(".btn-purchase").forEach(btn => {
-  btn.addEventListener("click", e => {
-    e.preventDefault();
-    const plan = btn.closest(".raid-card").querySelector("h3").innerText;
-    document.getElementById("selectedPlan").textContent = `Plan: ${plan}`;
-    document.getElementById("checkoutModal").classList.add("active");
-    document.querySelector(".confirmation-screen").classList.remove("visible");
-    document.getElementById("checkoutForm").style.display = "block";
+const plans = document.querySelectorAll('.btn-purchase');
+const checkout = document.getElementById('checkout');
+const success = document.getElementById('success');
+const planText = document.getElementById('selected-plan-text').querySelector('strong');
+const walletAddress = document.getElementById('wallet-address');
+const paymentMethod = document.getElementById('payment-method');
+
+const addresses = {
+  btc: 'bc1qexamplebtcaddresshere',
+  eth: '0xexampleethereumaddresshere',
+  ltc: 'ltcexamplelitecoinaddresshere'
+};
+
+plans.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const plan = btn.getAttribute('data-plan');
+    planText.textContent = plan;
+    document.querySelectorAll('.tab-content').forEach(sec => sec.style.display = 'none');
+    checkout.style.display = 'block';
   });
 });
 
-document.getElementById("checkoutForm").addEventListener("submit", e => {
+paymentMethod.addEventListener('change', (e) => {
+  walletAddress.textContent = addresses[e.target.value];
+});
+
+// Initial address on load
+walletAddress.textContent = addresses[paymentMethod.value];
+
+document.getElementById('checkout-form').addEventListener('submit', (e) => {
   e.preventDefault();
-  document.getElementById("checkoutForm").style.display = "none";
-  document.querySelector(".confirmation-screen").classList.add("visible");
-  // Optional: send info to backend via fetch()
-  // const email = document.getElementById("email").value;
-  // const wallet = document.getElementById("wallet").value;
+  checkout.style.display = 'none';
+  success.style.display = 'block';
 });
 
 const raids = [
