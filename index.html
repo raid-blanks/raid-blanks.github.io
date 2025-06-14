@@ -2,61 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RaidHub</title>
+  <title>RaidHub | Discord Raids</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <script>
+    function switchTab(tabName) {
+      let tabs = document.querySelectorAll(".tab");
+      tabs.forEach(t => t.classList.remove("active"));
+      document.getElementById(tabName).classList.add("active");
+    }
+  </script>
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="logo-container">
-      <img src="assets/logo.png" alt="RaidHub" class="logo">
-      <span class="brand">RaidHub</span>
-    </div>
-    <nav class="nav-links">
-      <a onclick="switchTab('home')">Home</a>
-      <a onclick="switchTab('clips')">Clips</a>
-      <a onclick="switchTab('purchase')">Purchase</a>
-      <a onclick="switchTab('tokens')">Tokens</a>
-      <a onclick="switchTab('announcements')">Announcements</a>
-    </nav>
-  </header>
+<header class="topbar">
+  <div class="logo-container">
+    <img src="assets/logo.png" alt="RaidHub" class="logo">
+    <span class="brand">RaidHub</span>
+  </div>
+  <nav class="nav-links">
+    <a onclick="switchTab('home')">Home</a>
+    <a onclick="switchTab('clips')">Clips</a>
+    <a onclick="switchTab('purchase')">Purchase</a>
+    <a onclick="switchTab('tokens')">Tokens</a>
+    <a onclick="switchTab('announcements')">Announcements</a>
+  </nav>
+</header>
 
-  <main class="content">
-
-    <section id="home" class="tab active">
+<main class="content">
+  <section id="home" class="tab active">
+    <div class="home-inner">
       <h1>Unleash <span class="highlight">Next-Level Raids</span></h1>
       <p>Your server was raided for demonstration. Stay tuned — the full tool drops soon.</p>
       <div class="btn-group">
         <button class="primary-btn">Purchase (Soon)</button>
         <button class="secondary-btn">Learn More</button>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="clips" class="tab">
-      <h2>📹 Raid Clips</h2>
-      <div class="clip-gallery">
-        <video src="assets/clips/raid1.mp4" controls></video>
-        <video src="assets/clips/raid2.mp4" controls></video>
-      </div>
-    </section>
+  <section id="clips" class="tab">
+    <div class="home-inner">
+      <h1>Clips</h1>
+      <p>Coming soon: epic raid recaps and demos.</p>
+    </div>
+  </section>
 
-    <section id="purchase" class="tab">
-      <h2>🛒 Purchase Raider</h2>
-      <p class="coming-soon">Not available yet — stay posted.</p>
-    </section>
+  <section id="purchase" class="tab">
+    <div class="home-inner">
+      <h1>Purchase</h1>
+      <p>Tool isn’t ready for public drop yet — stay tuned.</p>
+    </div>
+  </section>
 
-    <section id="tokens" class="tab">
-      <h2>🎟️ Purchase Tokens</h2>
-      <p class="coming-soon">Token packs dropping soon.</p>
-    </section>
+  <section id="tokens" class="tab">
+    <div class="home-inner">
+      <h1>Purchase Tokens</h1>
+      <p>Token packs will be available on release day.</p>
+    </div>
+  </section>
 
-    <section id="announcements" class="tab">
-      <h2>📢 Announcements</h2>
-      <ul id="announcement-list"></ul>
-    </section>
-
-  </main>
+  <section id="announcements" class="tab">
+    <div class="home-inner">
+      <h1>Announcements</h1>
+      <p>Next raid event will be announced here.</p>
+    </div>
+  </section>
+</main>
 
 </body>
 </html>
