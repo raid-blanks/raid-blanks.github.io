@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Raid Blanks</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main style="text-align:center; padding-top:60px;">
+    <h1>Login to Raid Blanks</h1>
+    <div style="max-width: 400px; margin: auto;">
+      <input id="email" type="email" placeholder="Email" class="form-input" /><br /><br />
+      <input id="password" type="password" placeholder="Password" class="form-input" /><br /><br />
+      <button id="loginUser" class="btn-purchase">Login</button>
+      <button id="signupUser" class="btn-purchase" style="margin-left: 10px;">Sign Up</button>
+      <p id="loginMsg" style="color: #ccc; margin-top: 20px;"></p>
+    </div>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+  <script>
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCr3XQXTMRz6DCK63lz3p33wx6emEiBf5s",
+      authDomain: "raidblankz-599fd.firebaseapp.com",
+      projectId: "raidblankz-599fd",
+      appId: "1:734248639742:web:307b43e2050879be5319af"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    const loginMsg = document.getElementById("loginMsg");
+
+    document.getElementById("loginUser").onclick = () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          window.location.href = "index.html";
+        })
+        .catch(e => loginMsg.textContent = e.message);
+    };
+
+    document.getElementById("signupUser").onclick = () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          window.location.href = "index.html";
+        })
+        .catch(e => loginMsg.textContent = e.message);
+    };
+  </script>
+</body>
+</html>
