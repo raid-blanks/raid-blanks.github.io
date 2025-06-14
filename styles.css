@@ -137,18 +137,18 @@ button.pulse:hover {
 }
 
 .btn-purchase {
-  background: linear-gradient(145deg, #6c1aff, #0040ff);
-  border: 2px solid #8e2eff;
-  color: #ffffff;
-  font-weight: bold;
+  background: linear-gradient(135deg, #3e2c78, #223089);
+  border: 1px solid #5b4db2;
+  color: #eaeaff;
+  font-weight: 600;
   font-size: 18px;
-  padding: 18px 36px;
-  border-radius: 15px;
+  padding: 18px 38px;
+  border-radius: 14px;
   text-decoration: none;
-  box-shadow: 0 0 25px #7c3aed, 0 0 50px #3b82f6;
-  transition: all 0.35s ease;
+  box-shadow: 0 4px 14px rgba(88, 78, 163, 0.4);
+  transition: all 0.3s ease;
   text-align: center;
-  min-width: 180px;
+  min-width: 190px;
   position: relative;
   overflow: hidden;
 }
@@ -156,20 +156,33 @@ button.pulse:hover {
 .btn-purchase::before {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
-  animation: pulseGlow 3s infinite;
-  opacity: 0.5;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.5s ease;
+}
+
+.btn-purchase:hover::before {
+  left: 130%;
+  transition: all 0.5s ease;
 }
 
 .btn-purchase:hover {
-  background: linear-gradient(145deg, #8e2eff, #3374ff);
-  box-shadow: 0 0 35px #a074ff, 0 0 60px #60a5fa;
-  transform: scale(1.08);
-  cursor: pointer;
+  background: linear-gradient(135deg, #4c3a91, #2a3b8f);
+  box-shadow: 0 6px 20px rgba(100, 90, 200, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-purchase:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(100, 90, 200, 0.3);
 }
 
 /* pulse keyframes */
