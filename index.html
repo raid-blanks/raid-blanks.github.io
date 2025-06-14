@@ -2,60 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RaidHub</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    function showTab(tabName) {
-      const tabs = document.querySelectorAll('.tab');
-      tabs.forEach(tab => tab.style.display = 'none');
-      document.getElementById(tabName).style.display = 'block';
-    }
-
-    window.onload = () => showTab('home');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discord Raider</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header class="navbar">
-    <div class="logo-area">
-      <img src="assets/logo.png" alt="RaidHub Logo" class="logo">
-      <span class="brand-name">RaidHub</span>
-    </div>
-    <nav class="nav-buttons">
-      <button onclick="showTab('home')">Home</button>
-      <button onclick="showTab('clips')">Clips</button>
-      <button onclick="showTab('purchase')">Purchase</button>
-      <button onclick="showTab('tokens')">Tokens</button>
-      <button onclick="showTab('announcements')">Announcements</button>
+  <header>
+    <img src="logo.png" alt="Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="#" class="tab-link active" data-tab="home">Home</a></li>
+        <li><a href="#" class="tab-link" data-tab="clips">Clips</a></li>
+        <li><a href="#" class="tab-link" data-tab="announcements">Announcements</a></li>
+        <li><a href="#" class="tab-link" data-tab="tokens">Token Purchase</a></li>
+        <li><a href="#" class="tab-link" data-tab="purchase">Purchase Raider</a></li>
+      </ul>
     </nav>
   </header>
 
   <main>
-    <section id="home" class="tab">
-      <h1>Welcome to <span class="gradient-text">RaidHub</span></h1>
-      <p>Your server was raided for demo purposes. Full tool dropping soon.</p>
+    <section id="home" class="tab-content active">
+      <h1>You Got Raided 👑</h1>
+      <p>This server was targeted for being toxic, breaking TOS, or simply for fun. Get your own raider soon and join the chaos.</p>
+      <button class="pulse">Join Our Discord</button>
     </section>
 
-    <section id="clips" class="tab">
-      <h1>Clips</h1>
-      <p>Epic raid clips will be added here soon.</p>
+    <section id="clips" class="tab-content">
+      <h1>Raid Clips 📹</h1>
+      <p>Checkout the latest clips from our server raids — new chaos uploaded daily.</p>
     </section>
 
-    <section id="purchase" class="tab">
-      <h1>Purchase</h1>
-      <p>The tool isn't ready for public release yet. Stay tuned.</p>
+    <section id="announcements" class="tab-content">
+      <h1>Announcements 📢</h1>
+      <p>No new announcements yet. Stay tuned for the release date of our premium raider.</p>
     </section>
 
-    <section id="tokens" class="tab">
-      <h1>Purchase Tokens</h1>
-      <p>Token packs available at drop time.</p>
+    <section id="tokens" class="tab-content">
+      <h1>Token Purchase 🔒</h1>
+      <p>Coming soon — Buy fresh unclaimed tokens directly here.</p>
+      <button class="pulse">Join Waitlist</button>
     </section>
 
-    <section id="announcements" class="tab">
-      <h1>Announcements</h1>
-      <p>Upcoming raid events will be posted here.</p>
+    <section id="purchase" class="tab-content">
+      <h1>Purchase Raider ⚔️</h1>
+      <p>Our powerful Discord Raider will be available soon. Secure your copy before it's gone.</p>
+      <button class="pulse">Coming Soon</button>
     </section>
   </main>
 
+  <script src="script.js"></script>
 </body>
 </html>
