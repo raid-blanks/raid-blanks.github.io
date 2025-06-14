@@ -1,7 +1,7 @@
-// Example: fetch or add announcements dynamically
+// Dynamically add new announcements
 const announcements = [
-  "🚨 New private raid tool update coming soon.",
-  "💣 Expect a big drop on Friday."
+  "🚨 Private tool beta launching soon.",
+  "💣 Expect another big raid drop on Friday night."
 ];
 
 const list = document.getElementById("announcement-list");
