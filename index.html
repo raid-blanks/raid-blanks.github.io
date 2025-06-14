@@ -10,6 +10,34 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "YOUR_KEY",
+    authDomain: "YOUR_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    appId: "YOUR_APP_ID"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  auth.onAuthStateChanged(user => {
+    if (!user) window.location.href = "login.html";
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const loginBtn = document.getElementById("loginBtn");
+    if (loginBtn) {
+      loginBtn.textContent = "Logout";
+      loginBtn.onclick = () => {
+        auth.signOut().then(() => {
+          window.location.href = "login.html";
+        });
+      };
+    }
+  });
+</script>
   <div id="background-anim"></div>
 
   <header>
