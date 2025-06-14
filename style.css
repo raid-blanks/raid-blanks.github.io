@@ -1,6 +1,6 @@
 body {
-  background: #0f0f0f;
-  color: #f1f1f1;
+  background: #020202;
+  color: #d1d1d1;
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 20px;
@@ -12,15 +12,41 @@ body {
   margin: auto;
 }
 
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.logo {
+  height: 45px;
+  filter: drop-shadow(0 0 8px #0ff);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.08);
+}
+
 h1, h2 {
   text-align: center;
   margin: 20px 0;
 }
 
+.title {
+  font-size: 3em;
+}
+
+.neon {
+  color: #00f9ff;
+  text-shadow: 0 0 8px #00f9ff, 0 0 16px #00f9ff, 0 0 32px #00f9ff;
+}
+
 .desc {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.1em;
   margin-bottom: 40px;
+  color: #999;
 }
 
 .clip-gallery {
@@ -33,26 +59,32 @@ h1, h2 {
 video {
   width: 350px;
   border-radius: 12px;
-  transition: transform 0.3s ease;
+  box-shadow: 0 0 20px #00f9ff33;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 video:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 30px #00f9ff88;
 }
 
 button {
   display: block;
-  margin: 20px auto;
+  margin: 30px auto;
   padding: 15px 30px;
   border: none;
-  background: #262626;
-  color: #888;
+  background: #111;
+  color: #00f9ff;
   border-radius: 8px;
   font-size: 1.1em;
+  box-shadow: 0 0 12px #00f9ff55;
+  cursor: not-allowed;
 }
 
 button.disabled-btn {
-  cursor: not-allowed;
+  background: #111;
+  color: #555;
+  box-shadow: 0 0 12px #55555533;
 }
 
 .announcements ul {
@@ -62,9 +94,11 @@ button.disabled-btn {
 }
 
 .announcements li {
-  margin: 10px 0;
+  margin: 12px 0;
   opacity: 0;
   animation: slideIn 0.8s forwards;
+  color: #0ff;
+  text-shadow: 0 0 4px #00f9ff, 0 0 8px #00f9ff;
 }
 
 .announcements li:nth-child(1) { animation-delay: 0.2s; }
@@ -72,7 +106,7 @@ button.disabled-btn {
 
 .fade-in {
   opacity: 0;
-  animation: fadeIn 1s forwards;
+  animation: fadeIn 1.2s forwards;
 }
 
 @keyframes fadeIn {
@@ -80,6 +114,6 @@ button.disabled-btn {
 }
 
 @keyframes slideIn {
-  from { transform: translateX(-50px); opacity: 0; }
+  from { transform: translateX(-60px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
