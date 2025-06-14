@@ -18,6 +18,26 @@ tabLinks.forEach(link => {
   });
 });
 
+document.querySelectorAll(".btn-purchase").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.preventDefault();
+    const plan = btn.closest(".raid-card").querySelector("h3").innerText;
+    document.getElementById("selectedPlan").textContent = `Plan: ${plan}`;
+    document.getElementById("checkoutModal").classList.add("active");
+    document.querySelector(".confirmation-screen").classList.remove("visible");
+    document.getElementById("checkoutForm").style.display = "block";
+  });
+});
+
+document.getElementById("checkoutForm").addEventListener("submit", e => {
+  e.preventDefault();
+  document.getElementById("checkoutForm").style.display = "none";
+  document.querySelector(".confirmation-screen").classList.add("visible");
+  // Optional: send info to backend via fetch()
+  // const email = document.getElementById("email").value;
+  // const wallet = document.getElementById("wallet").value;
+});
+
 const raids = [
   { server: "Foresaken Wiki Discord", date: "June 12, 2025", reason: "Being Weird trolls" }
 ];
