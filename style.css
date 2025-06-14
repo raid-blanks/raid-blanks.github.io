@@ -1,147 +1,154 @@
-body {
-  background: #020202;
-  color: #d1d1d1;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 20px;
-  overflow-x: hidden;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-.container {
-  max-width: 800px;
-  margin: auto;
+body {
+  margin: 0;
+  background: #000;
+  color: #ccc;
+  font-family: 'Poppins', sans-serif;
 }
 
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
-  flex-wrap: wrap;
+  padding: 15px 30px;
+  border-bottom: 1px solid #111;
+  background: #0a0a0a;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  height: 45px;
-  filter: drop-shadow(0 0 8px #0ff);
-  transition: transform 0.3s ease;
+  height: 48px;
+  margin-right: 10px;
+  filter: drop-shadow(0 0 8px #f0f);
 }
 
-.logo:hover {
-  transform: scale(1.08);
+.brand {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.4em;
 }
 
-.tabs button {
-  background: transparent;
-  border: none;
-  color: #00f9ff;
-  font-size: 1em;
-  margin: 0 8px;
-  padding: 8px 14px;
-  border-radius: 8px;
-  transition: background 0.3s, transform 0.2s;
+.nav-links a {
+  margin: 0 14px;
+  color: #ccc;
+  text-decoration: none;
   cursor: pointer;
+  font-size: 1em;
+  transition: color 0.3s;
 }
 
-.tabs button:hover {
-  background: #0ff3;
-  transform: scale(1.05);
+.nav-links a:hover {
+  color: #ff6dfd;
 }
 
-h1, h2 {
+.content {
+  padding: 60px 30px;
   text-align: center;
-  margin: 20px 0;
 }
 
-.title {
+h1 {
   font-size: 3em;
+  margin-bottom: 20px;
+  color: #fff;
 }
 
-.neon {
-  color: #00f9ff;
-  text-shadow: 0 0 8px #00f9ff, 0 0 16px #00f9ff, 0 0 32px #00f9ff;
+.highlight {
+  background: linear-gradient(90deg, #ff6dfd, #00f9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.desc {
-  text-align: center;
+p {
   font-size: 1.1em;
-  margin-bottom: 40px;
-  color: #999;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.btn-group button {
+  padding: 14px 28px;
+  margin: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(90deg, #ff6dfd, #00f9ff);
+  color: #fff;
+  box-shadow: 0 0 20px #00f9ff88;
+}
+
+.primary-btn:hover {
+  filter: brightness(1.2);
+}
+
+.secondary-btn {
+  background: #111;
+  color: #ccc;
+  border: 1px solid #333;
+}
+
+.secondary-btn:hover {
+  background: #222;
 }
 
 .clip-gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
+  gap: 20px;
 }
 
 video {
-  width: 350px;
+  width: 320px;
   border-radius: 12px;
-  box-shadow: 0 0 20px #00f9ff33;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px #00f9ff55;
+  transition: transform 0.3s ease;
 }
 
 video:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px #00f9ff88;
+  transform: scale(1.03);
 }
 
-button {
-  display: block;
-  margin: 30px auto;
-  padding: 15px 30px;
-  border: none;
-  background: #111;
-  color: #00f9ff;
-  border-radius: 8px;
+.coming-soon {
+  color: #666;
   font-size: 1.1em;
-  box-shadow: 0 0 12px #00f9ff55;
-  cursor: not-allowed;
 }
 
-button.disabled-btn {
-  background: #111;
-  color: #555;
-  box-shadow: 0 0 12px #55555533;
-}
-
-.announcements ul {
+#announcement-list {
   list-style: none;
   padding: 0;
-  font-size: 1.1em;
+  max-width: 600px;
+  margin: 30px auto;
 }
 
-.announcements li {
-  margin: 12px 0;
-  opacity: 0;
-  animation: slideIn 0.8s forwards;
-  color: #0ff;
-  text-shadow: 0 0 4px #00f9ff, 0 0 8px #00f9ff;
-}
-
-.announcements li:nth-child(1) { animation-delay: 0.2s; }
-.announcements li:nth-child(2) { animation-delay: 0.4s; }
-
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1.2s forwards;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-@keyframes slideIn {
-  from { transform: translateX(-60px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+#announcement-list li {
+  background: #111;
+  margin: 10px 0;
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00f9ff33;
+  color: #eee;
+  text-align: left;
 }
 
 .tab {
   display: none;
-  animation: fadeIn 0.7s forwards;
+  animation: fadeIn 0.7s ease forwards;
 }
 
 .tab.active {
   display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
 }
