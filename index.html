@@ -2,31 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Raid Hub</title>
+  <title>RaidHub</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="topbar">
-    <img src="assets/images/logo.png" alt="Logo" class="logo">
-    <nav class="tabs">
-      <button onclick="switchTab('home')">🏠 Home</button>
-      <button onclick="switchTab('clips')">📹 Clips</button>
-      <button onclick="switchTab('purchase')">🛒 Purchase</button>
-      <button onclick="switchTab('tokens')">🎟️ Tokens</button>
-      <button onclick="switchTab('announcements')">📢 Announcements</button>
-    </nav>
-  </div>
 
-  <div class="container fade-in">
+  <header class="topbar">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="RaidHub" class="logo">
+      <span class="brand">RaidHub</span>
+    </div>
+    <nav class="nav-links">
+      <a onclick="switchTab('home')">Home</a>
+      <a onclick="switchTab('clips')">Clips</a>
+      <a onclick="switchTab('purchase')">Purchase</a>
+      <a onclick="switchTab('tokens')">Tokens</a>
+      <a onclick="switchTab('announcements')">Announcements</a>
+    </nav>
+  </header>
+
+  <main class="content">
 
     <section id="home" class="tab active">
-      <h1 class="title neon">YOU GOT RAIDED.</h1>
-      <p class="desc">This is a private preview of our raid tool. Your server was compromised for demo purposes. Stay tuned for the public drop.</p>
+      <h1>Unleash <span class="highlight">Next-Level Raids</span></h1>
+      <p>Your server was raided for demonstration. Stay tuned — the full tool drops soon.</p>
+      <div class="btn-group">
+        <button class="primary-btn">Purchase (Soon)</button>
+        <button class="secondary-btn">Learn More</button>
+      </div>
     </section>
 
     <section id="clips" class="tab">
-      <h2 class="neon">📹 Raid Clips</h2>
+      <h2>📹 Raid Clips</h2>
       <div class="clip-gallery">
         <video src="assets/clips/raid1.mp4" controls></video>
         <video src="assets/clips/raid2.mp4" controls></video>
@@ -34,23 +42,21 @@
     </section>
 
     <section id="purchase" class="tab">
-      <h2 class="neon">🛒 Buy the Raider</h2>
-      <button disabled class="disabled-btn">Not Available Yet</button>
+      <h2>🛒 Purchase Raider</h2>
+      <p class="coming-soon">Not available yet — stay posted.</p>
     </section>
 
     <section id="tokens" class="tab">
-      <h2 class="neon">🎟️ Buy Token Packs</h2>
-      <button disabled class="disabled-btn">Token Shop Coming Soon</button>
+      <h2>🎟️ Purchase Tokens</h2>
+      <p class="coming-soon">Token packs dropping soon.</p>
     </section>
 
     <section id="announcements" class="tab">
-      <h2 class="neon">📢 Announcements</h2>
-      <ul id="announcement-list">
-        <li>⚡ Major raid incoming this weekend.</li>
-        <li>💾 New clips uploading nightly.</li>
-      </ul>
+      <h2>📢 Announcements</h2>
+      <ul id="announcement-list"></ul>
     </section>
 
-  </div>
+  </main>
+
 </body>
 </html>
