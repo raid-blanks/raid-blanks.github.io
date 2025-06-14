@@ -35,6 +35,27 @@ raids.forEach(raid => {
   raidsContainer.appendChild(card);
 });
 
+function createShootingStar() {
+  const star = document.createElement("div");
+  star.className = "shooting-star";
+
+  // Random horizontal start position
+  star.style.left = Math.random() * window.innerWidth + "px";
+
+  // Random delay before starting animation
+  star.style.animationDelay = Math.random() * 5 + "s";
+
+  document.body.appendChild(star);
+
+  // Remove after 5s to avoid DOM clutter
+  setTimeout(() => {
+    star.remove();
+  }, 5000);
+}
+
+// Create random shooting stars every 800ms
+setInterval(createShootingStar, 800);
+
 function loadRaidClips() {
   const container = document.getElementById('clips-container');
   container.innerHTML = '';
