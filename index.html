@@ -118,25 +118,40 @@
 </section>
   </main>
   <!-- Checkout Modal -->
-<div id="checkoutModal" class="checkout-modal">
-  <div class="checkout-content">
-    <h2 id="checkoutTitle">Confirm Purchase</h2>
-    <p id="selectedPlan">Plan: </p>
-    <form id="checkoutForm">
-      <input type="email" id="email" placeholder="Your Email" required class="form-input" />
-      <input type="text" id="wallet" placeholder="Your BTC Wallet Address" required class="form-input" />
-      <button type="submit" class="btn-purchase">Confirm Purchase</button>
-    </form>
-    <div class="confirmation-screen hidden">
-      <div class="checkmark-wrapper">
-        <div class="checkmark-circle">
-          <div class="checkmark-stem"></div>
-          <div class="checkmark-kick"></div>
-        </div>
-      </div>
-      <p>Thanks! We’ll notify you once the payment is verified.</p>
+<section id="checkout" class="tab-content" style="display:none;">
+  <h1>Complete Your Purchase</h1>
+  <p id="selected-plan-text">You selected: <strong></strong></p>
+
+  <form id="checkout-form">
+    <label>Email:</label><br>
+    <input type="email" class="form-input" required><br><br>
+
+    <label>Your Wallet Address:</label><br>
+    <input type="text" class="form-input" required><br><br>
+
+    <label>Payment Method:</label><br>
+    <select class="form-input" id="payment-method">
+      <option value="btc">Bitcoin</option>
+      <option value="eth">Ethereum</option>
+      <option value="ltc">Litecoin</option>
+    </select><br><br>
+
+    <div id="crypto-address" style="margin: 10px 0;">
+      <p><strong>Send payment to:</strong></p>
+      <p id="wallet-address">---</p>
     </div>
+
+    <button type="submit" class="btn-purchase">Continue</button>
+  </form>
+</section>
+
+<section id="success" class="tab-content" style="display:none;">
+  <div class="checkmark-animation">
+    <div class="checkmark"></div>
   </div>
+  <h2>Thank you!</h2>
+  <p>We’ll notify you at your email once your payment is confirmed.</p>
+</section>
 </div>
 
   <script src="script.js"></script>
