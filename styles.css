@@ -116,40 +116,25 @@ button.pulse {
   border-radius: 8px;
 }
 
-#background-anim {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.shooting-star {
+.galaxy-star {
   position: absolute;
-  top: 0;
   width: 2px;
-  height: 100px;
-  background: linear-gradient(to bottom, rgba(157, 96, 255, 1), rgba(157, 96, 255, 0));
-  opacity: 1;
-  box-shadow: 0 0 12px rgba(157, 96, 255, 0.7);
+  height: 2px;
+  background: #a855f7;
   border-radius: 50%;
-  transform: rotate(30deg); /* steeper angle */
-  animation: shoot-slant 3s linear forwards;
+  opacity: 0.8;
+  animation: drift 60s linear infinite;
 }
 
-@keyframes shoot-slant {
+@keyframes drift {
   0% {
-    opacity: 1;
-    transform: translateX(0px) translateY(0px) rotate(30deg);
+    transform: translateY(0px) translateX(0px);
   }
   100% {
-    opacity: 1;
-    transform: translateX(1200px) translateY(2000px) rotate(30deg);
+    transform: translateY(300px) translateX(600px);
   }
 }
+
 
 .clip-video iframe {
   position: absolute;
