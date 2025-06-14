@@ -28,11 +28,18 @@ function loadRaidClips() {
       data.forEach(raid => {
         const card = document.createElement('div');
         card.className = 'clip-card';
+
+        // Convert YouTube watch link to embed link
+        let embedUrl = raid.video;
+        if (embedUrl.includes("youtube.com/watch?v=")) {
+          embedUrl = embedUrl.replace("watch?v=", "embed/");
+        }
+
         card.innerHTML = `
           <h3>${raid.title}</h3>
           <div class="clip-video">
             <iframe 
-              src="${raid.video}" 
+              src="${embedUrl}" 
               frameborder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen>
@@ -46,4 +53,6 @@ function loadRaidClips() {
       container.innerHTML = '<p>Failed to load clips.</p>';
       console.error(err);
     });
+}
+
 }
