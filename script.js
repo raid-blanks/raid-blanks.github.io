@@ -39,25 +39,25 @@ function createShootingStar() {
   const star = document.createElement("div");
   star.className = "shooting-star";
 
-  // Random horizontal start position (anywhere in viewport width)
+  // Start random horizontal position within viewport width
   star.style.left = Math.random() * window.innerWidth + "px";
+  
+  // Random negative start Y so they start above viewport
+  star.style.top = Math.random() * -500 + "px";
 
-  // Random vertical start offset to vary starting heights
-  star.style.top = Math.random() * -300 + "px";
-
-  // Random delay to stagger appearances
-  star.style.animationDelay = Math.random() * 3 + "s";
+  // Stagger with random delay
+  star.style.animationDelay = Math.random() * 1 + "s";
 
   document.getElementById("background-anim").appendChild(star);
 
-  // Remove after animation completes to keep DOM clean
+  // Remove star after animation ends (clean DOM)
   setTimeout(() => {
     star.remove();
-  }, 3000);
+  }, 3100);
 }
 
-// Generate a new shooting star every 600ms
-setInterval(createShootingStar, 600);
+// Generate one every 500ms
+setInterval(createShootingStar, 500);
 
 function loadRaidClips() {
   const container = document.getElementById('clips-container');
