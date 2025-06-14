@@ -35,22 +35,25 @@ raids.forEach(raid => {
   raidsContainer.appendChild(card);
 });
 
-function createRainDrop() {
-  const drop = document.createElement("div");
-  drop.className = "rain-drop";
+function createGalaxyStar() {
+  const star = document.createElement("div");
+  star.className = "galaxy-star";
 
-  drop.style.left = Math.random() * window.innerWidth + "px";
-  drop.style.animationDuration = (1 + Math.random() * 2) + "s";
-  drop.style.opacity = Math.random() * 0.5 + 0.3;
+  // Position star inside viewport minus max drift distance
+  const maxXDrift = 100;
+  const maxYDrift = 200;
 
-  document.getElementById("background-anim").appendChild(drop);
+  star.style.left = Math.random() * (window.innerWidth - maxXDrift) + "px";
+  star.style.top = Math.random() * (window.innerHeight - maxYDrift) + "px";
+  star.style.opacity = (Math.random() * 0.8 + 0.2).toFixed(2);
+  star.style.animationDuration = (30 + Math.random() * 60) + "s";
 
-  setTimeout(() => {
-    drop.remove();
-  }, 3000);
+  document.getElementById("background-anim").appendChild(star);
 }
 
-setInterval(createRainDrop, 50);
+for (let i = 0; i < 150; i++) {
+  createGalaxyStar();
+}
 
 function loadRaidClips() {
   const container = document.getElementById('clips-container');
