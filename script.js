@@ -18,55 +18,6 @@ tabLinks.forEach(link => {
   });
 });
 
-const plans = document.querySelectorAll('.btn-purchase[data-plan]');
-const priceText = document.getElementById('selected-price');
-const planPrices = {
-  "1 Month": "$5.00",
-  "3 Months": "$12.00",
-  "6 Months": "$20.00",
-  "1 Year": "$35.00",
-  "Lifetime": "$50.00"
-};
-const checkout = document.getElementById('checkout');
-const success = document.getElementById('success');
-const planText = document.getElementById('selected-plan-text').querySelector('strong');
-const walletAddress = document.getElementById('wallet-address');
-const paymentMethod = document.getElementById('payment-method');
-
-const addresses = {
-  btc: 'bc1qx4y4p9zn6u8kfny86wzysrdcx3chrjen085s32',
-  eth: '0xc0660Dc9748f6Da7Fe040dd32B9FDe8D4e213EB8',
-  ltc: 'LhonVVs88dRzjf3ZvAMTTGMvGveS9vsuBQ'
-};
-
-plans.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const plan = btn.getAttribute('data-plan');
-    planText.textContent = plan;
-    document.querySelectorAll('.tab-content').forEach(sec => sec.style.display = 'none');
-    checkout.style.display = 'block';
-  });
-});
-
-paymentMethod.addEventListener('change', (e) => {
-  walletAddress.textContent = addresses[e.target.value];
-});
-
-// Initial address on load
-walletAddress.textContent = addresses[paymentMethod.value];
-
-document.getElementById('checkout-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  checkout.style.display = 'none';
-  success.style.display = 'block';
-});
-
-btn.addEventListener("click", () => {
-  const plan = btn.getAttribute("data-plan");
-  planText.textContent = plan;
-  priceText.textContent = planPrices[plan] || '---';
-});
-
 const raids = [
   { server: "Foresaken Wiki Discord", date: "June 12, 2025", reason: "Being Weird trolls" }
 ];
