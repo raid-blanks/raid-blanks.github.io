@@ -18,6 +18,23 @@ tabLinks.forEach(link => {
   });
 });
 
+const raids = [
+  { server: "Foresaken Wiki Discord", date: "June 14, 2025", reason: "Being Assholes" }
+];
+
+const raidsContainer = document.getElementById("raids-container");
+
+raids.forEach(raid => {
+  const card = document.createElement("div");
+  card.className = "raid-card";
+  card.innerHTML = `
+    <h3>${raid.server}</h3>
+    <p><strong>Date:</strong> ${raid.date}</p>
+    <p><strong>Reason:</strong> ${raid.reason}</p>
+  `;
+  raidsContainer.appendChild(card);
+});
+
 function loadRaidClips() {
   const container = document.getElementById('clips-container');
   container.innerHTML = '';
