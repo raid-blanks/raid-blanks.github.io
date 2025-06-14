@@ -1,19 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
 body {
   margin: 0;
+  font-family: 'Segoe UI', sans-serif;
   background: #000;
-  color: #ccc;
-  font-family: 'Poppins', sans-serif;
+  color: #fff;
 }
 
 .topbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 15px 30px;
-  border-bottom: 1px solid #111;
+  align-items: center;
+  padding: 12px 40px;
   background: #0a0a0a;
+  border-bottom: 1px solid #111;
 }
 
 .logo-container {
@@ -22,19 +20,19 @@ body {
 }
 
 .logo {
-  height: 48px;
+  height: 40px;
   margin-right: 10px;
-  filter: drop-shadow(0 0 8px #f0f);
+  filter: drop-shadow(0 0 8px #ff00ff);
 }
 
 .brand {
   color: #fff;
   font-weight: 600;
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 .nav-links a {
-  margin: 0 14px;
+  margin-left: 24px;
   color: #ccc;
   text-decoration: none;
   cursor: pointer;
@@ -47,14 +45,22 @@ body {
 }
 
 .content {
-  padding: 60px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
   text-align: center;
+  min-height: calc(100vh - 80px);
+}
+
+.home-inner {
+  max-width: 600px;
 }
 
 h1 {
   font-size: 3em;
-  margin-bottom: 20px;
   color: #fff;
+  margin-bottom: 20px;
 }
 
 .highlight {
@@ -64,14 +70,14 @@ h1 {
 }
 
 p {
-  font-size: 1.1em;
   color: #aaa;
+  font-size: 1.1em;
   margin-bottom: 30px;
 }
 
 .btn-group button {
-  padding: 14px 28px;
-  margin: 10px;
+  padding: 14px 26px;
+  margin: 8px;
   font-size: 1em;
   border: none;
   border-radius: 8px;
@@ -82,11 +88,11 @@ p {
 .primary-btn {
   background: linear-gradient(90deg, #ff6dfd, #00f9ff);
   color: #fff;
-  box-shadow: 0 0 20px #00f9ff88;
+  box-shadow: 0 0 20px #00f9ff99;
 }
 
 .primary-btn:hover {
-  filter: brightness(1.2);
+  filter: brightness(1.1);
 }
 
 .secondary-btn {
@@ -99,56 +105,10 @@ p {
   background: #222;
 }
 
-.clip-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-video {
-  width: 320px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #00f9ff55;
-  transition: transform 0.3s ease;
-}
-
-video:hover {
-  transform: scale(1.03);
-}
-
-.coming-soon {
-  color: #666;
-  font-size: 1.1em;
-}
-
-#announcement-list {
-  list-style: none;
-  padding: 0;
-  max-width: 600px;
-  margin: 30px auto;
-}
-
-#announcement-list li {
-  background: #111;
-  margin: 10px 0;
-  padding: 14px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #00f9ff33;
-  color: #eee;
-  text-align: left;
-}
-
 .tab {
   display: none;
-  animation: fadeIn 0.7s ease forwards;
 }
 
 .tab.active {
   display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px);}
-  to { opacity: 1; transform: translateY(0);}
 }
