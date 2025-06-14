@@ -199,6 +199,7 @@ button.pulse:hover {
     transform: translate(-50%, -50%) scale(0.8);
     opacity: 0.3;
   }
+}
 
 @keyframes fadeInUp {
   from {
