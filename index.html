@@ -117,6 +117,27 @@
   </div>
 </section>
   </main>
+  <!-- Checkout Modal -->
+<div id="checkoutModal" class="checkout-modal">
+  <div class="checkout-content">
+    <h2 id="checkoutTitle">Confirm Purchase</h2>
+    <p id="selectedPlan">Plan: </p>
+    <form id="checkoutForm">
+      <input type="email" id="email" placeholder="Your Email" required class="form-input" />
+      <input type="text" id="wallet" placeholder="Your BTC Wallet Address" required class="form-input" />
+      <button type="submit" class="btn-purchase">Confirm Purchase</button>
+    </form>
+    <div class="confirmation-screen hidden">
+      <div class="checkmark-wrapper">
+        <div class="checkmark-circle">
+          <div class="checkmark-stem"></div>
+          <div class="checkmark-kick"></div>
+        </div>
+      </div>
+      <p>Thanks! We’ll notify you once the payment is verified.</p>
+    </div>
+  </div>
+</div>
 
   <script src="script.js"></script>
 </body>
