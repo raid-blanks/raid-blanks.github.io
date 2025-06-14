@@ -2,57 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login - Raid Blanks</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: radial-gradient(circle at center, #0a0a23, #000);
+    }
+
+    .auth-container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+      text-align: center;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .auth-container h2 {
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #a855f7, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .auth-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background: #111;
+      color: #fff;
+      border: 1px solid #333;
+      border-radius: 8px;
+    }
+
+    .auth-container button {
+      margin-top: 10px;
+      padding: 12px 24px;
+      background: linear-gradient(90deg, #7c3aed, #3b82f6);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .auth-container a {
+      display: block;
+      margin-top: 15px;
+      color: #9d60ff;
+      text-decoration: underline;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-  <main style="text-align:center; padding-top:60px;">
-    <h1>Login to Raid Blanks</h1>
-    <div style="max-width: 400px; margin: auto;">
-      <input id="email" type="email" placeholder="Email" class="form-input" /><br /><br />
-      <input id="password" type="password" placeholder="Password" class="form-input" /><br /><br />
-      <button id="loginUser" class="btn-purchase">Login</button>
-      <button id="signupUser" class="btn-purchase" style="margin-left: 10px;">Sign Up</button>
-      <p id="loginMsg" style="color: #ccc; margin-top: 20px;"></p>
-    </div>
-  </main>
+  <div class="auth-container">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <a href="signup.html">Don't have an account? Sign up</a>
+  </div>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-  <script>
-    // Your Firebase config
-    const firebaseConfig = {
-      apiKey: "AIzaSyCr3XQXTMRz6DCK63lz3p33wx6emEiBf5s",
-      authDomain: "raidblankz-599fd.firebaseapp.com",
-      projectId: "raidblankz-599fd",
-      appId: "1:734248639742:web:307b43e2050879be5319af"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    const loginMsg = document.getElementById("loginMsg");
-
-    document.getElementById("loginUser").onclick = () => {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      auth.signInWithEmailAndPassword(email, password)
-        .then(() => {
-          window.location.href = "index.html";
-        })
-        .catch(e => loginMsg.textContent = e.message);
-    };
-
-    document.getElementById("signupUser").onclick = () => {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      auth.createUserWithEmailAndPassword(email, password)
-        .then(() => {
-          window.location.href = "index.html";
-        })
-        .catch(e => loginMsg.textContent = e.message);
-    };
-  </script>
+  <script type="module" src="firebase-auth.js"></script>
 </body>
 </html>
