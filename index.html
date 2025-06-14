@@ -2,72 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RaidHub | Discord Raids</title>
+  <title>RaidHub</title>
   <link rel="stylesheet" href="style.css">
   <script>
-    function switchTab(tabName) {
-      let tabs = document.querySelectorAll(".tab");
-      tabs.forEach(t => t.classList.remove("active"));
-      document.getElementById(tabName).classList.add("active");
+    function showTab(tabName) {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.style.display = 'none');
+      document.getElementById(tabName).style.display = 'block';
     }
+
+    window.onload = () => showTab('home');
   </script>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="logo-container">
-    <img src="assets/logo.png" alt="RaidHub" class="logo">
-    <span class="brand">RaidHub</span>
-  </div>
-  <nav class="nav-links">
-    <a onclick="switchTab('home')">Home</a>
-    <a onclick="switchTab('clips')">Clips</a>
-    <a onclick="switchTab('purchase')">Purchase</a>
-    <a onclick="switchTab('tokens')">Tokens</a>
-    <a onclick="switchTab('announcements')">Announcements</a>
-  </nav>
-</header>
-
-<main class="content">
-  <section id="home" class="tab active">
-    <div class="home-inner">
-      <h1>Unleash <span class="highlight">Next-Level Raids</span></h1>
-      <p>Your server was raided for demonstration. Stay tuned — the full tool drops soon.</p>
-      <div class="btn-group">
-        <button class="primary-btn">Purchase (Soon)</button>
-        <button class="secondary-btn">Learn More</button>
-      </div>
+  <header class="navbar">
+    <div class="logo-area">
+      <img src="assets/logo.png" alt="RaidHub Logo" class="logo">
+      <span class="brand-name">RaidHub</span>
     </div>
-  </section>
+    <nav class="nav-buttons">
+      <button onclick="showTab('home')">Home</button>
+      <button onclick="showTab('clips')">Clips</button>
+      <button onclick="showTab('purchase')">Purchase</button>
+      <button onclick="showTab('tokens')">Tokens</button>
+      <button onclick="showTab('announcements')">Announcements</button>
+    </nav>
+  </header>
 
-  <section id="clips" class="tab">
-    <div class="home-inner">
+  <main>
+    <section id="home" class="tab">
+      <h1>Welcome to <span class="gradient-text">RaidHub</span></h1>
+      <p>Your server was raided for demo purposes. Full tool dropping soon.</p>
+    </section>
+
+    <section id="clips" class="tab">
       <h1>Clips</h1>
-      <p>Coming soon: epic raid recaps and demos.</p>
-    </div>
-  </section>
+      <p>Epic raid clips will be added here soon.</p>
+    </section>
 
-  <section id="purchase" class="tab">
-    <div class="home-inner">
+    <section id="purchase" class="tab">
       <h1>Purchase</h1>
-      <p>Tool isn’t ready for public drop yet — stay tuned.</p>
-    </div>
-  </section>
+      <p>The tool isn't ready for public release yet. Stay tuned.</p>
+    </section>
 
-  <section id="tokens" class="tab">
-    <div class="home-inner">
+    <section id="tokens" class="tab">
       <h1>Purchase Tokens</h1>
-      <p>Token packs will be available on release day.</p>
-    </div>
-  </section>
+      <p>Token packs available at drop time.</p>
+    </section>
 
-  <section id="announcements" class="tab">
-    <div class="home-inner">
+    <section id="announcements" class="tab">
       <h1>Announcements</h1>
-      <p>Next raid event will be announced here.</p>
-    </div>
-  </section>
-</main>
+      <p>Upcoming raid events will be posted here.</p>
+    </section>
+  </main>
 
 </body>
 </html>
