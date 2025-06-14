@@ -116,6 +116,33 @@ button.pulse {
   border-radius: 8px;
 }
 
+.shooting-star {
+  position: fixed;
+  top: -10px;
+  width: 3px;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0));
+  opacity: 0;
+  transform: rotate(45deg);
+  pointer-events: none;
+  z-index: 0;
+  animation: shoot 2s linear infinite;
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0) rotate(45deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(2000px) translateY(2000px) rotate(45deg);
+  }
+}
+
 .clip-video iframe {
   position: absolute;
   top: 0;
