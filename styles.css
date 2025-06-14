@@ -98,10 +98,6 @@ main {
   padding: 15px;
   width: 320px;
   animation: fadeInUp 0.8s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
 .clip-card h3 {
@@ -115,25 +111,8 @@ main {
   border-radius: 8px;
 }
 
-.clip-video {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.clip-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-}
-
 button.pulse {
-  margin-top: 12px;
+  margin-top: 10px;
   padding: 15px 30px;
   font-size: 18px;
   border: none;
@@ -142,118 +121,15 @@ button.pulse {
   color: #fff;
   cursor: pointer;
   animation: pulse 2s infinite;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+  transition: transform 0.2s;
 }
 
-button.pulse:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.6);
-}
-
-.purchase-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.btn-purchase {
-  background: linear-gradient(135deg, #3e2c78, #223089);
-  border: 1px solid #5b4db2;
-  color: #eaeaff;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 18px 38px;
-  border-radius: 14px;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(88, 78, 163, 0.4);
-  transition: all 0.3s ease;
-  text-align: center;
-  min-width: 190px;
+.clip-video {
   position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
   overflow: hidden;
-}
-
-.btn-purchase::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0) 60%
-  );
-  transform: skewX(-25deg);
-  transition: all 0.5s ease;
-}
-
-.btn-purchase:hover::before {
-  left: 130%;
-  transition: all 0.5s ease;
-}
-
-.btn-purchase:hover {
-  background: linear-gradient(135deg, #4c3a91, #2a3b8f);
-  box-shadow: 0 8px 24px rgba(100, 90, 200, 0.6);
-  transform: translateY(-3px) scale(1.05);
-}
-
-.btn-purchase:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 12px rgba(100, 90, 200, 0.3);
-}
-
-.recent-raids {
-  margin-top: 60px;
-  text-align: center;
-  animation: fadeInUp 1s ease;
-}
-
-.recent-raids h2 {
-  font-size: 36px;
-  margin-bottom: 25px;
-  background: linear-gradient(90deg, #a855f7, #60a5fa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-#raids-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.raid-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #333;
-  border-radius: 14px;
-  padding: 20px;
-  width: 280px;
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: fadeInUp 0.8s ease;
-}
-
-.raid-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
-}
-
-.raid-card h3 {
-  font-size: 20px;
-  color: #9d60ff;
-  margin-bottom: 10px;
-}
-
-.raid-card p {
-  font-size: 16px;
-  color: #ccc;
+  border-radius: 8px;
 }
 
 #background-anim {
@@ -286,6 +162,153 @@ button.pulse:hover {
   }
 }
 
+.clip-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+button.pulse:hover {
+  transform: scale(1.05);
+}
+
+.purchase-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-purchase {
+  background: linear-gradient(135deg, #3e2c78, #223089);
+  border: 1px solid #5b4db2;
+  color: #eaeaff;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 18px 38px;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(88, 78, 163, 0.4);
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 190px;
+  position: relative;
+  overflow: hidden;
+}
+
+.recent-raids {
+  margin-top: 60px;
+  text-align: center;
+  animation: fadeInUp 1s ease;
+}
+
+.recent-raids h2 {
+  font-size: 36px;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #a855f7, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#raids-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* UPDATED: raid-card for both raids + purchase */
+.raid-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  border-radius: 14px;
+  padding: 20px 20px 30px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.2);
+  animation: fadeInUp 0.8s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.raid-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
+}
+
+.raid-card h3 {
+  font-size: 22px;
+  color: #9d60ff;
+  margin-bottom: 12px;
+}
+
+.raid-card p {
+  font-size: 15px;
+  color: #bbb;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+/* NEW: purchase badges */
+.raid-card span {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(157, 96, 255, 0.5);
+  animation: pulseBadge 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.raid-card span:hover {
+  transform: scale(1.1);
+}
+
+.btn-purchase::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.5s ease;
+}
+
+.btn-purchase:hover::before {
+  left: 130%;
+  transition: all 0.5s ease;
+}
+
+.btn-purchase:hover {
+  background: linear-gradient(135deg, #4c3a91, #2a3b8f);
+  box-shadow: 0 6px 20px rgba(100, 90, 200, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-purchase:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(100, 90, 200, 0.3);
+}
+
+/* pulse keyframes */
 @keyframes pulseGlow {
   0% {
     transform: translate(-50%, -50%) scale(0.8);
@@ -321,5 +344,18 @@ button.pulse:hover {
   }
   100% {
     box-shadow: 0 0 0 0 rgba(124, 58, 237, 0);
+  }
+}
+
+/* NEW: pulseBadge for purchase plan labels */
+@keyframes pulseBadge {
+  0% {
+    box-shadow: 0 0 0 0 rgba(157, 96, 255, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(157, 96, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(157, 96, 255, 0);
   }
 }
