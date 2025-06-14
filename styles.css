@@ -91,6 +91,37 @@ main {
   margin-top: 20px;
 }
 
+.checkmark-animation {
+  margin: 30px auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pop 0.5s ease forwards;
+}
+
+.checkmark {
+  width: 30px;
+  height: 15px;
+  border-left: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+  transform: rotate(-45deg);
+  animation: draw 0.4s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes draw {
+  to { opacity: 1; }
+}
+
 .clip-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid #333;
