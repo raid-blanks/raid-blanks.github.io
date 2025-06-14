@@ -2,20 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Why You Got Raided</title>
+  <title>Raid Hub</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <div class="topbar">
     <img src="assets/images/logo.png" alt="Logo" class="logo">
+    <nav class="tabs">
+      <button onclick="switchTab('home')">🏠 Home</button>
+      <button onclick="switchTab('clips')">📹 Clips</button>
+      <button onclick="switchTab('purchase')">🛒 Purchase</button>
+      <button onclick="switchTab('tokens')">🎟️ Tokens</button>
+      <button onclick="switchTab('announcements')">📢 Announcements</button>
+    </nav>
   </div>
 
   <div class="container fade-in">
-    <h1 class="title neon">YOU GOT RAIDED.</h1>
-    <p class="desc">Your server was hit by one of the cleanest Discord raids out here. This is a showcase preview — and yes, it can happen to anyone.</p>
 
-    <section class="clips">
+    <section id="home" class="tab active">
+      <h1 class="title neon">YOU GOT RAIDED.</h1>
+      <p class="desc">This is a private preview of our raid tool. Your server was compromised for demo purposes. Stay tuned for the public drop.</p>
+    </section>
+
+    <section id="clips" class="tab">
       <h2 class="neon">📹 Raid Clips</h2>
       <div class="clip-gallery">
         <video src="assets/clips/raid1.mp4" controls></video>
@@ -23,15 +33,20 @@
       </div>
     </section>
 
-    <section class="purchase">
+    <section id="purchase" class="tab">
       <h2 class="neon">🛒 Buy the Raider</h2>
       <button disabled class="disabled-btn">Not Available Yet</button>
     </section>
 
-    <section class="announcements">
+    <section id="tokens" class="tab">
+      <h2 class="neon">🎟️ Buy Token Packs</h2>
+      <button disabled class="disabled-btn">Token Shop Coming Soon</button>
+    </section>
+
+    <section id="announcements" class="tab">
       <h2 class="neon">📢 Announcements</h2>
       <ul id="announcement-list">
-        <li>⚡ Major raid coming this weekend.</li>
+        <li>⚡ Major raid incoming this weekend.</li>
         <li>💾 New clips uploading nightly.</li>
       </ul>
     </section>
