@@ -1,20 +1,17 @@
-function switchTab(tabId) {
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.classList.remove('active');
+const tabLinks = document.querySelectorAll('.tab-link');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetTab = link.getAttribute('data-tab');
+
+    // remove all active states
+    tabLinks.forEach(l => l.classList.remove('active'));
+    tabContents.forEach(c => c.classList.remove('active'));
+
+    // set active on clicked tab and corresponding content
+    link.classList.add('active');
+    document.getElementById(targetTab).classList.add('active');
   });
-  document.getElementById(tabId).classList.add('active');
-}
-
-// Sample dynamic announcements
-const announcements = [
-  "🚨 Raid wave dropping Friday 8PM EST.",
-  "💾 New stealth modules in testing phase.",
-  "📦 Token packs launching soon."
-];
-
-const list = document.getElementById("announcement-list");
-announcements.forEach(msg => {
-  const li = document.createElement("li");
-  li.textContent = msg;
-  list.appendChild(li);
 });
