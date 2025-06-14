@@ -52,9 +52,6 @@ for (let i = 0; i < 150; i++) {
 }
 
 
-// Generate one every 500ms
-setInterval(createShootingStar, 500);
-
 function loadRaidClips() {
   const container = document.getElementById('clips-container');
   container.innerHTML = '';
