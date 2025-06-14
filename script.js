@@ -27,12 +27,6 @@ const planPrices = {
   "1 Year": "$35.00",
   "Lifetime": "$50.00"
 };
-
-btn.addEventListener("click", () => {
-  const plan = btn.getAttribute("data-plan");
-  planText.textContent = plan;
-  priceText.textContent = planPrices[plan] || '---';
-});
 const checkout = document.getElementById('checkout');
 const success = document.getElementById('success');
 const planText = document.getElementById('selected-plan-text').querySelector('strong');
@@ -65,6 +59,12 @@ document.getElementById('checkout-form').addEventListener('submit', (e) => {
   e.preventDefault();
   checkout.style.display = 'none';
   success.style.display = 'block';
+});
+
+btn.addEventListener("click", () => {
+  const plan = btn.getAttribute("data-plan");
+  planText.textContent = plan;
+  priceText.textContent = planPrices[plan] || '---';
 });
 
 const raids = [
