@@ -14,8 +14,10 @@ body {
 
 .topbar {
   display: flex;
-  justify-content: flex-end;
-  padding: 10px 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -26,6 +28,23 @@ body {
 
 .logo:hover {
   transform: scale(1.08);
+}
+
+.tabs button {
+  background: transparent;
+  border: none;
+  color: #00f9ff;
+  font-size: 1em;
+  margin: 0 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+.tabs button:hover {
+  background: #0ff3;
+  transform: scale(1.05);
 }
 
 h1, h2 {
@@ -116,4 +135,13 @@ button.disabled-btn {
 @keyframes slideIn {
   from { transform: translateX(-60px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
+}
+
+.tab {
+  display: none;
+  animation: fadeIn 0.7s forwards;
+}
+
+.tab.active {
+  display: block;
 }
