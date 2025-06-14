@@ -132,21 +132,22 @@ button.pulse {
   top: 0;
   width: 2px;
   height: 100px;
-  background: linear-gradient(45deg, rgba(157, 96, 255, 1), rgba(157, 96, 255, 0));
+  background: linear-gradient(to bottom, rgba(157, 96, 255, 1), rgba(157, 96, 255, 0));
   opacity: 1;
   box-shadow: 0 0 12px rgba(157, 96, 255, 0.7);
   border-radius: 50%;
-  animation: shoot-diagonal 3s linear forwards;
+  transform: rotate(30deg); /* steeper angle */
+  animation: shoot-slant 3s linear forwards;
 }
 
-@keyframes shoot-diagonal {
+@keyframes shoot-slant {
   0% {
     opacity: 1;
-    transform: translateX(0px) translateY(0px);
+    transform: translateX(0px) translateY(0px) rotate(30deg);
   }
   100% {
     opacity: 1;
-    transform: translateX(1600px) translateY(1600px);
+    transform: translateX(1200px) translateY(2000px) rotate(30deg);
   }
 }
 
