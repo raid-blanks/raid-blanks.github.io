@@ -19,6 +19,14 @@ tabLinks.forEach(link => {
 });
 
 const plans = document.querySelectorAll('.btn-purchase[data-plan]');
+const priceText = document.getElementById('selected-price');
+const planPrices = {
+  "1 Month": "€ 11.99",
+  "3 Months": "€ 20.00",
+  "6 Months": "€ 45.00",
+  "1 Year": "€ 60.00",
+  "Lifetime": "€ 100.00"
+};
 const checkout = document.getElementById('checkout');
 const success = document.getElementById('success');
 const planText = document.getElementById('selected-plan-text').querySelector('strong');
