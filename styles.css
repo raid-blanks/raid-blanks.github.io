@@ -108,6 +108,23 @@ button.pulse {
   transition: transform 0.2s;
 }
 
+.clip-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.clip-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
 button.pulse:hover {
   transform: scale(1.05);
 }
