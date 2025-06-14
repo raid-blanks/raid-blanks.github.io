@@ -132,16 +132,15 @@ button.pulse {
   border-radius: 8px;
 }
 
-/* The container fills the viewport and hides overflow */
 #background-anim {
-  position: fixed;       /* stays fixed relative to viewport */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;      /* prevent scrollbars caused by moving stars */
-  pointer-events: none;  /* so clicks go through stars */
-  z-index: -1;           /* behind other page content */
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .galaxy-star {
@@ -154,16 +153,14 @@ button.pulse {
   animation: drift linear infinite;
 }
 
-/* Adjust animation so stars move smaller distances */
 @keyframes drift {
   0% {
     transform: translate(0, 0);
   }
   100% {
-    transform: translate(100px, 200px); /* smaller movement to avoid overflow */
+    transform: translate(100px, 200px);
   }
 }
-
 
 .clip-video iframe {
   position: absolute;
@@ -177,6 +174,7 @@ button.pulse {
 button.pulse:hover {
   transform: scale(1.05);
 }
+
 .purchase-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -223,15 +221,21 @@ button.pulse:hover {
   gap: 20px;
 }
 
+/* UPDATED: raid-card for both raids + purchase */
 .raid-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid #333;
   border-radius: 14px;
-  padding: 20px;
-  width: 280px;
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 20px 20px 30px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.2);
   animation: fadeInUp 0.8s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .raid-card:hover {
@@ -240,14 +244,36 @@ button.pulse:hover {
 }
 
 .raid-card h3 {
-  font-size: 20px;
+  font-size: 22px;
   color: #9d60ff;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .raid-card p {
-  font-size: 16px;
-  color: #ccc;
+  font-size: 15px;
+  color: #bbb;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+/* NEW: purchase badges */
+.raid-card span {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(157, 96, 255, 0.5);
+  animation: pulseBadge 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.raid-card span:hover {
+  transform: scale(1.1);
 }
 
 .btn-purchase::before {
@@ -318,5 +344,18 @@ button.pulse:hover {
   }
   100% {
     box-shadow: 0 0 0 0 rgba(124, 58, 237, 0);
+  }
+}
+
+/* NEW: pulseBadge for purchase plan labels */
+@keyframes pulseBadge {
+  0% {
+    box-shadow: 0 0 0 0 rgba(157, 96, 255, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(157, 96, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(157, 96, 255, 0);
   }
 }
