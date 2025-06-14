@@ -5,10 +5,11 @@ function switchTab(tabId) {
   document.getElementById(tabId).classList.add('active');
 }
 
-// Add dynamic announcements
+// Sample dynamic announcements
 const announcements = [
-  "🚨 Private tool beta launching soon.",
-  "💣 Big raid drop Friday night."
+  "🚨 Raid wave dropping Friday 8PM EST.",
+  "💾 New stealth modules in testing phase.",
+  "📦 Token packs launching soon."
 ];
 
 const list = document.getElementById("announcement-list");
