@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Account</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .account-container {
+      max-width: 500px;
+      margin: 80px auto;
+      background: rgba(255,255,255,0.05);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      animation: fadeInUp 1s ease;
+    }
+
+    .account-container input {
+      padding: 12px;
+      font-size: 16px;
+      width: 80%;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid #444;
+      background: #111;
+      color: #eee;
+    }
+
+    .account-container button {
+      padding: 12px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #7c3aed, #3b82f6);
+      color: white;
+      cursor: pointer;
+    }
+
+    #timer {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #9d60ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="account-container">
+    <h1>Redeem Access Key 🔑</h1>
+    <input type="text" id="keyInput" placeholder="Enter access key" />
+    <button onclick="redeemKey()">Redeem</button>
+    <div id="status"></div>
+    <div id="timer"></div>
+  </div>
+
+  <script type="module">
+    import {
+      auth,
+      db,
+      onAuthStateChanged,
+      doc,
+      getDoc,
+      updateDoc,
+      query,
+      collection,
+      where,
+      getDocs,
+      Timestamp
+    } from './firebase-auth.js';
+
+    const keyInput = document.getElementById("keyInput");
+    const status = document.getElementById("status");
+    const timerDisplay = document.getElementById("timer");
+
+    let timerInterval = null;
+
+    function showTimer(remainingMs) {
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        const seconds = Math.floor(remainingMs / 1000) % 60;
+        const minutes = Math.floor(remainingMs / 1000 / 60) % 60;
+        const hours = Math.floor(remainingMs / 1000 / 60 / 60);
+
+        timerDisplay.textContent = `Access Time Remaining: ${hours}h ${minutes}m ${seconds}s`;
+
+        if (remainingMs <= 0) {
+          clearInterval(timerInterval);
+          timerDisplay.textContent = "Access expired.";
+        }
+
+        remainingMs -= 1000;
+      }, 1000);
+    }
+
+    async function redeemKey() {
+      const user = auth.currentUser;
+      if (!user) return status.textContent = "Please log in first.";
+
+      const key = keyInput.value.trim();
+      if (!key) return;
+
+      const q = query(collection(db, "accessKeys"), where("key", "==", key));
+      const snapshot = await getDocs(q);
+
+      if (snapshot.empty) {
+        status.textContent = "Invalid key.";
+        return;
+      }
+
+      const docRef = snapshot.docs[0].ref;
+      const data = snapshot.docs[0].data();
+
+      if (data.redeemed) {
+        const start = data.redeemedAt.toDate();
+        const now = new Date();
+        const msPassed = now - start;
+        const msDuration = data.duration * 60 * 60 * 1000;
+        const msLeft = msDuration - msPassed;
+
+        if (msLeft <= 0) {
+          status.textContent = "Key already used and expired.";
+          return;
+        }
+
+        status.textContent = "Key already redeemed. Access granted.";
+        showTimer(msLeft);
+        return;
+      }
+
+      await updateDoc(docRef, {
+        redeemed: true,
+        userId: user.uid,
+        redeemedAt: Timestamp.now()
+      });
+
+      status.textContent = "Key redeemed! Access granted.";
+      showTimer(data.duration * 60 * 60 * 1000);
+    }
+
+    onAuthStateChanged(auth, user => {
+      if (!user) {
+        status.textContent = "You must be logged in to redeem a key.";
+        keyInput.disabled = true;
+      }
+    });
+  </script>
+</body>
+</html>
