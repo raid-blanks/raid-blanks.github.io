@@ -10,34 +10,6 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyCr3XQXTMRz6DCK63lz3p33wx6emEiBf5s",
-      authDomain: "raidblankz-599fd.firebaseapp.com",
-      projectId: "raidblankz-599fd",
-      appId: "1:734248639742:web:307b43e2050879be5319af"
-    };
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-
-  auth.onAuthStateChanged(user => {
-    if (!user) window.location.href = "login.html";
-  });
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const loginBtn = document.getElementById("loginBtn");
-    if (loginBtn) {
-      loginBtn.textContent = "Logout";
-      loginBtn.onclick = () => {
-        auth.signOut().then(() => {
-          window.location.href = "login.html";
-        });
-      };
-    }
-  });
-</script>
   <div id="background-anim"></div>
 
   <header>
@@ -49,7 +21,6 @@
         <li><a href="#" class="tab-link" data-tab="announcements">Announcements</a></li>
         <li><a href="#" class="tab-link" data-tab="tokens">Token Purchase</a></li>
         <li><a href="#" class="tab-link" data-tab="purchase">Purchase Raider</a></li>
-        <li><a href="login.html" class="tab-link">Login</a></li>
       </ul>
     </nav>
   </header>
