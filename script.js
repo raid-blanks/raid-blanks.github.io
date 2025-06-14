@@ -35,26 +35,22 @@ raids.forEach(raid => {
   raidsContainer.appendChild(card);
 });
 
-function createShootingStar() {
+function createGalaxyStar() {
   const star = document.createElement("div");
-  star.className = "shooting-star";
+  star.className = "galaxy-star";
 
-  // Start random horizontal position within viewport width
   star.style.left = Math.random() * window.innerWidth + "px";
-  
-  // Random negative start Y so they start above viewport
-  star.style.top = Math.random() * -500 + "px";
-
-  // Stagger with random delay
-  star.style.animationDelay = Math.random() * 1 + "s";
+  star.style.top = Math.random() * window.innerHeight + "px";
+  star.style.opacity = Math.random() * 0.8 + 0.2;
+  star.style.animationDuration = (30 + Math.random() * 60) + "s";
 
   document.getElementById("background-anim").appendChild(star);
-
-  // Remove star after animation ends (clean DOM)
-  setTimeout(() => {
-    star.remove();
-  }, 3100);
 }
+
+for (let i = 0; i < 150; i++) {
+  createGalaxyStar();
+}
+
 
 // Generate one every 500ms
 setInterval(createShootingStar, 500);
