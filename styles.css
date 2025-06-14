@@ -291,11 +291,11 @@ button.pulse:hover {
 
 .checkout-content {
   background: #111;
-  padding: 30px;
+  padding: 25px;
   border-radius: 12px;
   text-align: center;
-  width: 100%;
-  max-width: 400px;
+  width: 90%;
+  max-width: 350px;
   box-shadow: 0 0 20px rgba(157, 96, 255, 0.3);
 }
 
