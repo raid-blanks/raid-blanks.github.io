@@ -21,12 +21,18 @@ tabLinks.forEach(link => {
 const plans = document.querySelectorAll('.btn-purchase[data-plan]');
 const priceText = document.getElementById('selected-price');
 const planPrices = {
-  "1 Month": "€ 11.99",
-  "3 Months": "€ 20.00",
-  "6 Months": "€ 45.00",
-  "1 Year": "€ 60.00",
-  "Lifetime": "€ 100.00"
+  "1 Month": "$5.00",
+  "3 Months": "$12.00",
+  "6 Months": "$20.00",
+  "1 Year": "$35.00",
+  "Lifetime": "$50.00"
 };
+
+btn.addEventListener("click", () => {
+  const plan = btn.getAttribute("data-plan");
+  planText.textContent = plan;
+  priceText.textContent = planPrices[plan] || '---';
+});
 const checkout = document.getElementById('checkout');
 const success = document.getElementById('success');
 const planText = document.getElementById('selected-plan-text').querySelector('strong');
