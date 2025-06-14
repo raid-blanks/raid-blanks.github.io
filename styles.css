@@ -242,6 +242,124 @@ button.pulse:hover {
   -webkit-text-fill-color: transparent;
 }
 
+.checkout-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-modal.active {
+  display: flex;
+}
+
+.checkout-content {
+  background: #111;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(157, 96, 255, 0.3);
+}
+
+.checkout-content h2 {
+  font-size: 28px;
+  color: #9d60ff;
+  margin-bottom: 10px;
+}
+
+.checkout-content p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.checkout-content .form-input {
+  margin-bottom: 15px;
+}
+
+.confirmation-screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmation-screen.visible {
+  display: flex;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Checkmark animation */
+.checkmark-wrapper {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.checkmark-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #22c55e;
+  position: relative;
+  animation: scaleUp 0.3s ease-out;
+}
+
+.checkmark-stem {
+  position: absolute;
+  width: 4px;
+  height: 25px;
+  background: #22c55e;
+  left: 36px;
+  top: 20px;
+  transform: rotate(45deg);
+  animation: drawStem 0.3s ease 0.3s forwards;
+  opacity: 0;
+}
+
+.checkmark-kick {
+  position: absolute;
+  width: 4px;
+  height: 12px;
+  background: #22c55e;
+  left: 28px;
+  top: 42px;
+  transform: rotate(-45deg);
+  animation: drawKick 0.3s ease 0.6s forwards;
+  opacity: 0;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes drawStem {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drawKick {
+  to {
+    opacity: 1;
+  }
+}
+
 #raids-container {
   display: flex;
   flex-wrap: wrap;
