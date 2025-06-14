@@ -124,29 +124,29 @@ button.pulse {
   height: 100%;
   overflow: hidden;
   z-index: -1;
+  pointer-events: none;
 }
 
 .shooting-star {
   position: absolute;
   top: 0;
   width: 2px;
-  height: 80px;
-  background: linear-gradient(180deg, rgba(157,96,255,1), rgba(157,96,255,0));
+  height: 100px;
+  background: linear-gradient(45deg, rgba(157, 96, 255, 1), rgba(157, 96, 255, 0));
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(157, 96, 255, 0.7);
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(157,96,255,0.7);
-  opacity: 0;
-  transform: rotate(45deg);
-  animation: shoot 3s linear forwards;
+  animation: shoot-diagonal 3s linear forwards;
 }
 
-@keyframes shoot {
+@keyframes shoot-diagonal {
   0% {
     opacity: 1;
-    transform: translateX(0) translateY(0) rotate(45deg);
+    transform: translateX(0px) translateY(0px);
   }
   100% {
-    opacity: 0;
-    transform: translateX(1400px) translateY(1400px) rotate(45deg);
+    opacity: 1;
+    transform: translateX(1600px) translateY(1600px);
   }
 }
 
