@@ -19,7 +19,7 @@ tabLinks.forEach(link => {
 });
 
 const raids = [
-  { server: "Foresaken Wiki Discord", date: "June 12, 2025", reason: "Being Weird trolls" }
+  { server: "Foresaken Wiki Discord", date: "June 12, 2025", reason: "Being Weird trolls" },
   { server: "Po1ar gaming hub", date: "June 14, 2025", reason: "Being Faggots" }
 ];
 
